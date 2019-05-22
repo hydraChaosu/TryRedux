@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import useInput from "../hooks/hookInput";
 const AddTodo = () => {
-  // useEffect = (() => {
-  //   this.input.focus();
-  // },
-  // []);
+  useEffect(() => {
+    this.input.focus();
+  }, []);
   // let input = null;
   // const {
   //   value: addTodoValue,
@@ -14,7 +13,7 @@ const AddTodo = () => {
   const { value, bind, reset } = useInput("");
   return (
     <form>
-      <input type="text" {...bind} />
+      <input type="text" {...bind} ref={ev => (input = ev)} />
       <button>Add</button>
     </form>
   );
