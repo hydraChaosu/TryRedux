@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useInput from "../hooks/hookInput";
+import { connect } from "react-redux";
+import add from "../redux/todo/actions";
 const AddTodo = () => {
   useEffect(() => {
     input.focus();
@@ -16,6 +18,8 @@ const AddTodo = () => {
       onSubmit={e => {
         e.preventDefault();
         reset();
+        if (value === "") return;
+        // dispatch(add(value));
       }}
     >
       <input type="text" {...bind} ref={ev => (input = ev)} />
@@ -24,4 +28,4 @@ const AddTodo = () => {
   );
 };
 
-export default AddTodo;
+export default connect()(AddTodo);
