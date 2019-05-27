@@ -1,10 +1,9 @@
 import types from "./types";
 import { bindActionCreators } from "redux";
-import store from "../store";
 
 const add = text => ({ type: types.ADD_TODO, text });
 const remove = index => ({ type: types.REMOVE_TODO, index });
-const complete = index => ({ type: types.COMPLETE_TODO, index });
+const toggle = index => ({ type: types.TOGGLE_TODO, index });
 
 // const boundAdd = bindActionCreators({ add }, store.dispatch);
 // const boundRemove = bindActionCreators({ remove }, store.dispatch);
@@ -12,7 +11,7 @@ const complete = index => ({ type: types.COMPLETE_TODO, index });
 export default {
   add,
   remove,
-  complete
+  toggle
   // boundAdd,
   // boundComplete,
   // boundRemove

@@ -1,18 +1,37 @@
 import React from "react";
 import TodoItem from "./TodoItem";
-const TodoList = props => {
+import { connect } from "react-redux";
+import actions from "../redux/todo/actions";
+const TodoList = ({ todos, toggle, remove }) => {
+  const adolf = id => {
+    console.log(id);
+  };
   return (
     <ul>
-      {/* {props.todos.map(todo => (
+      {todos.map(todo => (
         <TodoItem
-          key={props.id}
-          text={props.text}
-          onComplete={id => this.onComplete(id)}
-          onRemove={id => this.onRemove(id)}
+          key={todo.id}
+          id={todo.id}
+          text={todo.text}
+          completed={todo.completed}
+          remove={({ id }) => adolf(todo.id)}
+          toggle={id => toggle(todo.id)}
         />
-      ))} */}
+      ))}
     </ul>
   );
 };
 
-export default TodoList;
+const mapStateToProps = state => ({
+  todos: state.todos
+});
+
+const mapDispatchToProps = dispatch => ({
+  toggle: id => dispatch(actions.toggle(id)),
+  remove: id => dispatch(actions.remove(id))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList);

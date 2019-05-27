@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import useInput from "../hooks/hookInput";
 import { connect } from "react-redux";
-import add from "../redux/todo/actions";
-const AddTodo = () => {
+import actions from "../redux/todo/actions";
+const AddTodo = props => {
   useEffect(() => {
     input.focus();
   }, []);
@@ -19,7 +19,7 @@ const AddTodo = () => {
         e.preventDefault();
         reset();
         if (value === "") return;
-        // dispatch(add(value));
+        props.add(value);
       }}
     >
       <input type="text" {...bind} ref={ev => (input = ev)} />
@@ -28,4 +28,11 @@ const AddTodo = () => {
   );
 };
 
-export default connect()(AddTodo);
+const mapDispatchToProps = dispatch => ({
+  add: value => dispatch(actions.add(value))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(AddTodo);

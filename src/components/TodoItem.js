@@ -1,11 +1,11 @@
 import React from "react";
 
-const TodoItem = props => {
+const TodoItem = ({ text, toggle, remove, completed }) => {
   return (
     <li>
-      <p>{props.text}</p>
-      <button onComplete={props.onComplete}>complete</button>
-      <button onRemove={props.onRemove}>remove</button>
+      <p>{text}</p>
+      <button onClick={toggle}>{completed ? "uncomplete" : "complete"}</button>
+      <button onClick={remove}>remove</button>
     </li>
   );
 };

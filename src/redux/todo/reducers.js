@@ -28,7 +28,7 @@ const todoReducer = (state = INITIAL_STATE, action) => {
         ...state,
         todos: [...state.todos, newTodo]
       };
-    case types.COMPLETE_TODO:
+    case types.TOGGLE_TODO:
       const updatedTodo = { ...state }.todos.map(todo => {
         if (todo.id === action.index) {
           todo.completed = !todo.completed;
