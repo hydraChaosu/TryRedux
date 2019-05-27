@@ -14,8 +14,8 @@ const TodoList = ({ todos, toggle, remove }) => {
           id={todo.id}
           text={todo.text}
           completed={todo.completed}
-          remove={({ id }) => adolf(todo.id)}
-          toggle={id => toggle(todo.id)}
+          remove={() => remove(todo.id)}
+          toggle={() => toggle(todo.id)}
         />
       ))}
     </ul>
