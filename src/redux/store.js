@@ -1,6 +1,10 @@
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import todoReducer from "./todo/index";
-
-const store = createStore(todoReducer, composeWithDevTools());
+import thunk from "redux-thunk";
+// const middleware = applyMiddleware(logger());
+const store = createStore(
+  todoReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 export default store;
