@@ -3,7 +3,9 @@ import types from "./types";
 const INITIAL_STATE = {
   todos: [
     { id: 0, text: "do workaout", completed: false },
-    { id: 1, text: "Learn more words in english", completed: true }
+    { id: 1, text: "Learn more words in english", completed: true },
+    { id: 2, text: "Learn more words in dutch", completed: false },
+    { id: 3, text: "Learn more words in italian", completed: true }
   ]
 };
 

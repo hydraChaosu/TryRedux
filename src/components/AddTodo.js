@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import useInput from "../hooks/hookInput";
 import { connect } from "react-redux";
 import actions from "../redux/todo/actions";
