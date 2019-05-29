@@ -1,5 +1,5 @@
 import types from "./types";
-import { bindActionCreators } from "redux";
+// import { bindActionCreators } from "redux";
 
 const add = text => ({ type: types.ADD_TODO, text });
 const remove = index => ({ type: types.REMOVE_TODO, index });

@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import TodoItem from "./TodoItem";
 import { connect } from "react-redux";
 import actions from "../redux/todo/actions";
-const TodoList = ({ todos, kupatoggle, remove }) => {
+// import getTodo from "../redux/todo/operations";
+
+const TodoList = ({ todos, kupatoggle, remove, add }) => {
   let uncompletedTasks = [...todos].filter(todo => {
     if (todo.completed === false) return todo;
   });
@@ -33,8 +35,23 @@ const TodoList = ({ todos, kupatoggle, remove }) => {
     />
   ));
 
+  async function fetchTodos() {
+    try {
+      let fetchedTodos = await fetch(
+        "https://jsonplaceholder.typicode.com/todos"
+      )
+        .then(response => response.json())
+        .then(data => data.slice(0, 10));
+      console.log(fetchedTodos);
+      fetchedTodos.map(todo => add(todo.title));
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   useEffect(() => {
-    return () => {};
+    // getTodo();
+    fetchTodos();
   }, []);
   return (
     <>
@@ -64,7 +81,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   kupatoggle: id => dispatch(actions.toggle(id)),
-  remove: id => dispatch(actions.remove(id))
+  remove: id => dispatch(actions.remove(id)),
+  add: value => dispatch(actions.add(value))
 });
 
 export default connect(

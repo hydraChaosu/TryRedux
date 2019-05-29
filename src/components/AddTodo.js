@@ -3,10 +3,11 @@ import useInput from "../hooks/hookInput";
 import { connect } from "react-redux";
 import actions from "../redux/todo/actions";
 const AddTodo = props => {
+  let input = null;
+
   useEffect(() => {
     input.focus();
   }, []);
-  let input = null;
   // const {
   //   value: addTodoValue,
   //   bind: addTodoBind,
