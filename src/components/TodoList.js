@@ -42,7 +42,6 @@ const TodoList = ({ todos, kupatoggle, remove, add }) => {
       )
         .then(response => response.json())
         .then(data => data.slice(0, 10));
-      console.log(fetchedTodos);
       fetchedTodos.map(todo => add(todo.title));
     } catch (e) {
       console.log(e);
@@ -56,17 +55,17 @@ const TodoList = ({ todos, kupatoggle, remove, add }) => {
   return (
     <>
       <p>
-        {uncompletedTasks.length === 0
-          ? ""
-          : uncompletedTasks > 2
+        {uncompletedTasks.length >= 2
           ? `Uncompleted ${uncompletedTasks.length} tasks`
+          : uncompletedTasks.length === 0
+          ? ""
           : `Uncompleted ${uncompletedTasks.length} task`}
       </p>
       <ul>{uncompletedTasks}</ul>
       <p>
         {completedTasks.length === 0
           ? ""
-          : completedTasks > 2
+          : completedTasks.length >= 2
           ? `Completed ${completedTasks.length} tasks`
           : `Completed ${completedTasks.length} task`}
       </p>

@@ -12,7 +12,7 @@ async function fetchTodos() {
   }
 }
 
-export default async function getTodo(dispatch) {
+export default async function getTodo() {
   const fetchedTodos = await fetchTodos();
-  fetchedTodos.map(todo => dispatch(actions.add(todo.title)));
+  fetchedTodos.map(todo => actions.add(todo.title));
 }
