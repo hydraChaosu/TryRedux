@@ -1,12 +1,14 @@
 import React from "react";
-import "./App.css";
+import "./styles/main.scss";
 import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
 function App() {
   return (
     <>
-      <AddTodo />
-      <TodoList />
+      <div className="main">
+        <AddTodo />
+        <TodoList />
+      </div>
     </>
   );
 }

@@ -16,6 +16,7 @@ const AddTodo = props => {
   const { value, bind, reset } = useInput("");
   return (
     <form
+      className="add"
       onSubmit={e => {
         e.preventDefault();
         reset();

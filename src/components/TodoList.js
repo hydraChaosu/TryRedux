@@ -53,7 +53,7 @@ const TodoList = ({ todos, kupatoggle, remove, add }) => {
     fetchTodos();
   }, []);
   return (
-    <>
+    <div className="list">
       <p>
         {uncompletedTasks.length >= 2
           ? `Uncompleted ${uncompletedTasks.length} tasks`
@@ -70,7 +70,7 @@ const TodoList = ({ todos, kupatoggle, remove, add }) => {
           : `Completed ${completedTasks.length} task`}
       </p>
       <ul>{completedTasks}</ul>
-    </>
+    </div>
   );
 };
 
