@@ -103,6 +103,20 @@ button {
                 justify-content: center;
             }
         }
+
+        @media (min-width:600px) {
+            li {
+                display: flex;
+                align-items: baseline;
+
+                p {
+                    flex-grow: 1;
+                    text-align: left;
+                }
+
+                .buttons {}
+            }
+        }
     }
 }
 
