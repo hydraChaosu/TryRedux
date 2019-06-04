@@ -2,60 +2,115 @@
 @import "variables";
 
 body {
-  min-height: 100vh;
-  min-width: 100vw;
-  background-color: $primaryBgColor;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: $primaryBgColor;
 }
 
 p {
-  color: $primaryTxtColor;
-  font-family: $font;
+    color: $primaryTxtColor;
+    font-family: $font;
 }
 
 button {
-  min-width: 80px;
-  margin: 5px 10px;
-  padding: 5px 10px;
-  background-color: $buttonBgColor;
-  transition: 0.2s background-color linear;
-  font-family: $font;
-  color: $primaryTxtColor;
-  border-radius: 12px;
+    min-width: 80px;
+    margin: 5px 10px;
+    padding: 5px 10px;
+    background-color: $buttonBgColor;
+    transition: 0.2s background-color linear;
+    font-family: $font;
+    color: $primaryTxtColor;
+    border-radius: 12px;
 
-  &:hover {
-    background-color: $buttonBgColorHov, red;
-  }
+
 }
 
 .main {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 900px;
-  min-height: 100vh;
-
-  .add {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     flex-direction: column;
-    flex-basis: 100px;
     margin: 0 auto;
-    // width: 80%;
-    input {
-      background-color: $primaryBgColor;
-      border: 0;
-      border-bottom: $primaryTxtColor 3px solid;
-      border-radius: 5px;
-      color: $primaryTxtColor;
-    }
-  }
+    max-width: 900px;
+    min-height: 100vh;
 
-  .list {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
+    .add {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100px;
+        justify-content: center;
+        align-items: center;
+        // margin: 0 auto;
+
+        // width: 80%;
+        input {
+            background-color: $primaryBgColor;
+            border: 0;
+            border-bottom: $primaryTxtColor 3px solid;
+            border-radius: 5px;
+            color: $primaryTxtColor;
+            opacity: 1;
+            font-size: 1.5rem;
+
+            &:focus {
+                animation: blink .5s ease infinite;
+            }
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 60px;
+        }
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        margin: 0 5px;
+
+        &>p {
+            // transition: .2s linear all;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 1.5rem;
+
+        }
+
+        button:hover {
+            background-color: $buttonBgColorHov, red;
+        }
+
+        li {
+            p {
+                margin-top: 10px;
+                text-align: center;
+
+            }
+
+            button:first-of-type {
+                // margin: 0 auto;
+            }
+
+            button:last-of-type {
+                // margin: 0 auto;
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+
+@keyframes blink {
+
+
+    50% {
+        border-color: transparent;
+    }
 }

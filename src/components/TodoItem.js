@@ -4,8 +4,12 @@ const TodoItem = ({ text, toggle, remove, completed }) => {
   return (
     <li>
       <p>{text}</p>
-      <button onClick={toggle}>{completed ? "uncomplete" : "complete"}</button>
-      <button onClick={remove}>remove</button>
+      <div className="buttons">
+        <button onClick={toggle}>
+          {completed ? "uncomplete" : "complete"}
+        </button>
+        <button onClick={remove}>remove</button>
+      </div>
     </li>
   );
 };
